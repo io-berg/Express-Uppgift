@@ -1,15 +1,22 @@
-type BaseEntity = {
+interface BaseEntity {
   id: number;
   createdAt: Date;
   updatedAt: Date;
-};
+}
 
-type Product = BaseEntity & {
+interface Product extends BaseEntity {
   name: string;
   price: number;
   description: string;
   tags: ProductTag[];
-};
+}
+
+interface ProductDto {
+  name: string;
+  price: number;
+  description: string;
+  tags: ProductTag[];
+}
 
 type ProductTag =
   | "Fruit"
@@ -20,3 +27,16 @@ type ProductTag =
   | "Frozen"
   | "Fresh"
   | "Organic";
+
+interface AddProductRequest {
+  name: string;
+  price: number;
+  description: string;
+  tags: ProductTag[];
+}
+
+interface TypedRequestBody<T> extends Express.Request {
+  body: T;
+}
+
+export { AddProductRequest, Product, TypedRequestBody, ProductDto };
