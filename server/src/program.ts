@@ -1,70 +1,56 @@
 import express from "express";
-import { getTsBuildInfoEmitOutputFilePath } from "typescript";
-import { AddProductRequest, Product, TypedRequestBody } from "./types";
+import { CreateProductDto, TypedRequestBody, UpdateProductDto } from "./types";
+import productService from "./productService";
+import Cors from "cors";
 
-let data: Product[] = [];
-let nextId = 1;
-
-function getId(): number {
-  return nextId++;
-}
+productService.initialize();
 
 const app = express();
 app.use(express.json());
+app.use(Cors());
 
 app.get("/", (req, res) => {
-  res.status(200).json(data);
+  res.status(200).json(productService.getAll());
 });
 
-app.post("/", (req, res) => {
-  const { name, price, description, tags } = req.body;
-  const product = {
-    id: getId(),
-    name,
-    price,
-    description,
-    tags,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  };
-  data = [...data, product];
-  res.status(201).json(product);
-});
-
-app.put("/", (req, res) => {
-  const { id, updated } = req.body;
-  const index = data.findIndex((p) => p.id === id);
-  if (index === -1) {
+app.get("/:id", (req, res) => {
+  const product = productService.getById(Number(req.params.id));
+  if (product) {
+    res.status(200).json(product);
+  } else {
     res.status(404).json({ message: "Product not found" });
-    return;
   }
+});
 
-  const product = {
-    id: id,
-    name: updated.name,
-    price: updated.price,
-    description: updated.description,
-    tags: updated.tags,
-    createdAt: data[index].createdAt,
-    updatedAt: new Date(),
-  };
+app.post("/", (req: TypedRequestBody<CreateProductDto>, res) => {
+  const result = productService.add(req.body);
 
-  data = [...data.slice(0, index), product, ...data.slice(index + 1)];
+  if (result) {
+    res.status(201).json(result);
+  } else {
+    res.status(400).json({
+      message: "Invalid product data",
+    });
+  }
+});
 
-  res.status(200).json(product);
+app.put("/", (req: TypedRequestBody<UpdateProductDto>, res) => {
+  const result = productService.update(req.body);
+
+  if (result) {
+    res.status(200).json(result);
+  } else {
+    res.status(404).json({ message: "Product not found" });
+  }
 });
 
 app.delete("/", (req, res) => {
-  const { id } = req.body;
-  const index = data.findIndex((p) => p.id === id);
-  if (index === -1) {
+  const result = productService.delete(req.body.id);
+  if (result) {
+    res.status(200).json({ message: "Product deleted" });
+  } else {
     res.status(404).json({ message: "Product not found" });
-    return;
   }
-
-  data = [...data.slice(0, index), ...data.slice(index + 1)];
-
-  res.status(204).json();
 });
 
 app.listen(3000, () => {

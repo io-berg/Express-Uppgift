@@ -1,3 +1,12 @@
+
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/2
+
+###
+
 POST http://localhost:3000/
 Content-Type: application/JSON
 
@@ -10,21 +19,15 @@ Content-Type: application/JSON
 
 ###
 
-GET http://localhost:3000/
-
-###
-
 PUT http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "id": 1,
-    "updated": {
-        "name": "Big Meat",
-        "description": "Big Meat",
-        "price": "999.99",
-        "tags": ["Meat", "Fresh"]
-    }
+    "id": "1",
+    "name": "The Biggest Meat",
+    "description": "Big Meat",
+    "price": "999.99",
+    "tags": ["Meat", "Fresh"]
 }
 
 ###
@@ -33,5 +36,5 @@ DELETE http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "id": 2
+    "id": 3
 }
