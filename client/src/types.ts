@@ -16,8 +16,11 @@ type ProductTag =
   | "Fresh"
   | "Organic";
 
-interface ProductTableProps {
-  products: Product[];
+interface ProductCreationModel {
+  name: string;
+  price: number;
+  description: string;
+  tags: ProductTag[];
 }
 
-export type { Product, ProductTag, ProductTableProps };
+export type { Product, ProductTag, ProductCreationModel };
