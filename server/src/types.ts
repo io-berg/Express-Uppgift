@@ -29,10 +29,6 @@ type ProductTag =
   | "Fresh"
   | "Organic";
 
-interface TypedRequestBody<T> extends Express.Request {
-  body: T;
-}
-
 interface CreateProductDto {
   name: string;
   price: number;
@@ -48,10 +44,9 @@ interface UpdateProductDto {
   tags: ProductTag[];
 }
 
-export {
+export type {
   CreateProductDto,
   Product,
-  TypedRequestBody,
   ProductDto,
   UpdateProductDto,
   ProductTag,

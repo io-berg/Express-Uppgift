@@ -1,5 +1,4 @@
 import express from "express";
-import { CreateProductDto, TypedRequestBody, UpdateProductDto } from "./types";
 import productService from "./productService";
 import Cors from "cors";
 import {
@@ -8,7 +7,7 @@ import {
   getAllProducts,
   getProductById,
   updateProduct,
-} from "./api.productsController";
+} from "./productsController";
 import schemas from "./schemas";
 import validator from "./validator";
 

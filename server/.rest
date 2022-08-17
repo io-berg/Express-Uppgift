@@ -14,7 +14,7 @@ Content-Type: application/JSON
     "name": "Cabbage",
     "description": "Frozen Fish",
     "price": "10.00",
-    "tags": ["Banana", "Horse"]
+    "tags": ["Fruit", "Vegetable"]
 }
 
 ###

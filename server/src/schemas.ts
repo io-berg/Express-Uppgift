@@ -1,5 +1,4 @@
 import Joi from "joi";
-import { ProductTag } from "./types";
 
 const scemas = {
   createProduct: Joi.object().keys({
