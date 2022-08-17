@@ -3,7 +3,7 @@ GET http://localhost:3000/
 
 ###
 
-GET http://localhost:3000/2
+GET http://localhost:3000/1
 
 ###
 
@@ -11,10 +11,10 @@ POST http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "name": "Big Meat",
-    "description": "Big Meat",
+    "name": "Chicken",
+    "description": "Frozen Chicken",
     "price": "10.00",
-    "tags": ["Meat", "Fresh"]
+    "tags": ["Meat", "Frozen"]
 }
 
 ###
@@ -23,9 +23,9 @@ PUT http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "id": "1",
-    "name": "The Biggest Meat",
-    "description": "Big Meat",
+    "id": 1,
+    "name": "Fresh Chicken",
+    "description": "Fresh Chicken",
     "price": "999.99",
     "tags": ["Meat", "Fresh"]
 }
