@@ -2,9 +2,9 @@
 
 ### Table of Content
 
-- [Introduction](##Introduction)
-- [Startup](##Startup)
-- [Technologies](##Technologies)
+- [Introduction](#Introduction)
+- [Startup](#Startup)
+- [Technologies](#Technologies)
 
 ## Introduction
 
