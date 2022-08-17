@@ -54,4 +54,5 @@ export {
   TypedRequestBody,
   ProductDto,
   UpdateProductDto,
+  ProductTag,
 };

@@ -11,10 +11,10 @@ POST http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "name": "Fish",
+    "name": "Cabbage",
     "description": "Frozen Fish",
     "price": "10.00",
-    "tags": ["Fish", "Frozen"]
+    "tags": ["Banana", "Horse"]
 }
 
 ###
@@ -36,5 +36,5 @@ DELETE http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "id": 3
+    "id": 2
 }

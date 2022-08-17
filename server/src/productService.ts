@@ -46,7 +46,7 @@ function getById(id: number) {
 }
 
 function addProduct(product: CreateProductDto) {
-  const newProduct = {
+  const newProduct: Product = {
     id: getId(),
     name: product.name,
     price: product.price,
@@ -67,7 +67,7 @@ function updateProduct(updated: UpdateProductDto) {
     return false;
   }
 
-  const updatedProduct = {
+  const updatedProduct: Product = {
     id: updated.id,
     name: updated.name,
     price: updated.price,

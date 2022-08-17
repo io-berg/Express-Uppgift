@@ -40,3 +40,4 @@ Project Created with:
 - Ts-node version 10.9.1
 - Typescript verion 4.7.4
 - MUI version: 5.10.1
+- Joi version: 17.6.0
