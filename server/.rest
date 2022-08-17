@@ -11,10 +11,10 @@ POST http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "name": "Cabbage",
-    "description": "Frozen Fish",
+    "name": "Cow",
+    "description": "Frozen Fish Fresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh Chicken",
     "price": "10.00",
-    "tags": ["Fruit", "Vegetable"]
+    "tags": ["Fruit", "Vegetable", "Frozen"]
 }
 
 ###

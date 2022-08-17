@@ -1,5 +1,6 @@
+import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
-import "./App.css";
+import ProductTable from "./components/ProductTable";
 import { Product } from "./types";
 import { getAllProducts } from "./utils/apiCalls";
 
@@ -10,22 +11,13 @@ function App() {
     getAllProducts().then(setProducts);
   }, []);
 
-  const productList = products.map((product, index) => {
-    return (
-      <div key={index}>
-        <h2>{product.name}</h2>
-        <p>{product.description}</p>
-        <p>${product.price}</p>
-        <ul>
-          {product.tags.map((tag, index) => {
-            return <li key={index}>{tag}</li>;
-          })}
-        </ul>
-      </div>
-    );
-  });
-
-  return <div className="App">{productList}</div>;
+  return (
+    <div className="App">
+      <Container>
+        <ProductTable products={products} />
+      </Container>
+    </div>
+  );
 }
 
 export default App;
