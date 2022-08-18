@@ -12,10 +12,12 @@ import { Product } from "../types";
 
 interface ProductTableProps {
   products: Product[];
+  admin: boolean;
 }
 
 const ProductTable: FC<ProductTableProps> = ({
-  products
+  products,
+  admin = false
 }) => {
 
   return (
@@ -42,14 +44,13 @@ const ProductTable: FC<ProductTableProps> = ({
                 <TableCell>{product.stock}</TableCell>
                 <TableCell>
                   <div className="flex">
-                    <Button
-                      sx={{ marginRight: "5px" }}
-                      variant="contained"
-                    >
-                      Edit
-                    </Button>
+                    {
+                      admin ? <Button variant="contained" color="primary" sx={{marginRight: "4px"}}>Edit</Button> : null
+                    }
                     <Button color="error" variant="contained">
-                      Delete
+                      {
+                        admin ? "Delete" : "Buy"
+                      }
                     </Button>
                   </div>
                 </TableCell>
