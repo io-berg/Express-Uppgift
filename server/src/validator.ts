@@ -22,9 +22,4 @@ function validateBySchema(schema: Joi.ObjectSchema, object: any) {
   return error;
 }
 
-const schem = Joi.object().keys({
-  name: Joi.string().required(),
-  price: Joi.number().required(),
-});
-
 export default validator;

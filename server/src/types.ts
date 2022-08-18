@@ -8,7 +8,7 @@ interface Product extends BaseEntity {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;
 }
 
 interface ProductDto {
@@ -16,24 +16,14 @@ interface ProductDto {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;
 }
-
-type ProductTag =
-  | "Fruit"
-  | "Vegetable"
-  | "Meat"
-  | "Fish"
-  | "Dairy"
-  | "Frozen"
-  | "Fresh"
-  | "Organic";
 
 interface CreateProductDto {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;
 }
 
 interface UpdateProductDto {
@@ -41,13 +31,12 @@ interface UpdateProductDto {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;
 }
 
 export type {
   CreateProductDto,
   Product,
   ProductDto,
-  UpdateProductDto,
-  ProductTag,
+  UpdateProductDto
 };

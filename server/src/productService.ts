@@ -26,6 +26,9 @@ function getId() {
 }
 
 function initialize() {
+  if(!fs.existsSync("./data")) {
+    fs.mkdirSync("./data");
+  }
   if (!fs.existsSync(productsPath)) {
     fs.writeFileSync(productsPath, JSON.stringify([]));
   } else {
@@ -51,7 +54,7 @@ function addProduct(product: CreateProductDto) {
     name: product.name,
     price: product.price,
     description: product.description,
-    tags: product.tags,
+    stock: product.stock,
     createdAt: new Date(),
     updatedAt: new Date(),
   };
@@ -72,7 +75,7 @@ function updateProduct(updated: UpdateProductDto) {
     name: updated.name,
     price: updated.price,
     description: updated.description,
-    tags: updated.tags,
+    stock: updated.stock,
     createdAt: products[index].createdAt,
     updatedAt: new Date(),
   };
@@ -106,7 +109,7 @@ function mapDto(product: Product): ProductDto {
     name: product.name,
     price: product.price,
     description: product.description,
-    tags: product.tags,
+    stock: product.stock,
   };
 }
 

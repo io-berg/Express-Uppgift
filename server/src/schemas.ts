@@ -5,13 +5,7 @@ const scemas = {
     name: Joi.string().required(),
     price: Joi.number().required().min(0),
     description: Joi.string().optional(),
-    tags: Joi.array()
-      .items(
-        Joi.string().regex(
-          /^(Fruit|Vegetable|Meat|Fish|Dairy|Frozen|Fresh|Organic)$/
-        )
-      )
-      .optional(),
+    stock: Joi.number().required().min(0),
   }),
 
   updateProduct: Joi.object().keys({
@@ -19,13 +13,7 @@ const scemas = {
     name: Joi.string().optional(),
     price: Joi.number().optional().min(0),
     description: Joi.string().optional(),
-    tags: Joi.array()
-      .items(
-        Joi.string().regex(
-          /^(Fruit|Vegetable|Meat|Fish|Dairy|Frozen|Fresh|Organic)$/
-        )
-      )
-      .optional(),
+    stock: Joi.number().required().min(0),
   }),
 
   deleteProduct: Joi.object().keys({

@@ -10,11 +10,13 @@ import {
 } from "./productsController";
 import schemas from "./schemas";
 import validator from "./validator";
+import logger from "./logger";
 
 productService.initialize();
 const app = express();
 app.use(express.json());
 app.use(Cors());
+app.use(logger);
 
 app.get("/", getAllProducts);
 app.get("/:id", getProductById);

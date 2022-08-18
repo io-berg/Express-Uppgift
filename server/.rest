@@ -12,9 +12,9 @@ Content-Type: application/JSON
 
 {
     "name": "Cow",
-    "description": "Frozen Fish Fresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh ChickenFresh Chicken",
+    "description": "Freshest Frozen Cow",
     "price": "10.00",
-    "tags": ["Fruit", "Vegetable", "Frozen"]
+    "stock": 10
 }
 
 ###
@@ -27,7 +27,7 @@ Content-Type: application/JSON
     "name": "Fresh Chicken",
     "description": "Fresh Chicken",
     "price": "999.99",
-    "tags": ["Meat", "Fresh"]
+    "stock": 10
 }
 
 ###
