@@ -7,7 +7,7 @@ GET http://localhost:3000/products/1
 
 ###
 
-POST http://localhost:3000/
+POST http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/JSON
 
 ###
 
-PUT http://localhost:3000/
+PUT http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
@@ -32,9 +32,15 @@ Content-Type: application/JSON
 
 ###
 
-DELETE http://localhost:3000/
+DELETE http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
     "id": 2
 }
+
+
+###
+
+PATCH  http://localhost:3000/products/
+

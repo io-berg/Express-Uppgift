@@ -1,41 +1,22 @@
 import {
-  Button,
-  CircularProgress,
-  Paper,
+  Button, Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
-  TableRow,
-  TextField,
+  TableRow
 } from "@mui/material";
 import { FC } from "react";
-import { Product, ProductCreationModel } from "../types";
+import { Product } from "../types";
 
 interface ProductTableProps {
   products: Product[];
-  handleOpenEdit: (product: Product) => void;
-  showAddProduct: boolean;
-  addProduct: (product: ProductCreationModel) => void;
-  handleCloseAddProduct: () => void;
 }
 
 const ProductTable: FC<ProductTableProps> = ({
-  products,
-  handleOpenEdit,
-  showAddProduct,
-  addProduct,
-  handleCloseAddProduct,
+  products
 }) => {
-  const onAddProduct = () => {
-    addProduct({
-      name: "On Hand Product",
-      description: "This is a product that is on hand",
-      price: 100,
-      stock: 12,
-    });
-  };
 
   return (
     <TableContainer component={Paper}>
@@ -64,7 +45,6 @@ const ProductTable: FC<ProductTableProps> = ({
                     <Button
                       sx={{ marginRight: "5px" }}
                       variant="contained"
-                      onClick={() => handleOpenEdit(product)}
                     >
                       Edit
                     </Button>

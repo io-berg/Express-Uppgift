@@ -100,7 +100,7 @@ function deleteProduct(id: number) {
 }
 
 function saveProducts() {
-  fs.writeFileSync(productsPath, JSON.stringify(products, null, 4));
+  fs.writeFileSync(productsPath, JSON.stringify(products));
 }
 
 function mapDto(product: Product): ProductDto {

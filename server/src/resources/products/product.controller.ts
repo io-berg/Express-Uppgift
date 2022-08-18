@@ -6,6 +6,7 @@ function getAllProducts(req: Request, res: Response) {
 }
 
 function getProductById(req: Request, res: Response) {
+  throw new Error("Method not implemented.");
   const product = productService.getById(Number(req.params.id));
   if (product) {
     res.status(200).json(product);
