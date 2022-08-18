@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from "express";
 
 const validator = (schema: Joi.ObjectSchema) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    const error = validateBySchema(schema, req.body);
+    const { error } = schema.validate(req.body);
     const valid = error == null;
     if (valid) {
       next();
@@ -16,10 +16,5 @@ const validator = (schema: Joi.ObjectSchema) => {
     }
   };
 };
-
-function validateBySchema(schema: Joi.ObjectSchema, object: any) {
-  const { error } = schema.validate(object);
-  return error;
-}
 
 export default validator;

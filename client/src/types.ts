@@ -3,24 +3,22 @@ interface Product {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;  
 }
-
-type ProductTag =
-  | "Fruit"
-  | "Vegetable"
-  | "Meat"
-  | "Fish"
-  | "Dairy"
-  | "Frozen"
-  | "Fresh"
-  | "Organic";
 
 interface ProductCreationModel {
   name: string;
   price: number;
   description: string;
-  tags: ProductTag[];
+  stock: number;
 }
 
-export type { Product, ProductTag, ProductCreationModel };
+interface ProductUpdateModel {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  stock: number;
+}
+
+export type { Product, ProductCreationModel };

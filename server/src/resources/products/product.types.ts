@@ -40,3 +40,4 @@ export type {
   ProductDto,
   UpdateProductDto
 };
+

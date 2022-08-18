@@ -3,8 +3,8 @@ import {
   CreateProductDto,
   Product,
   ProductDto,
-  UpdateProductDto,
-} from "./types";
+  UpdateProductDto
+} from "./product.types";
 
 const productsPath = "./data/products.json";
 let products: Product[] = [];

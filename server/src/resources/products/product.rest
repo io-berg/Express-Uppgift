@@ -1,9 +1,9 @@
 
-GET http://localhost:3000/
+GET http://localhost:3000/products/
 
 ###
 
-GET http://localhost:3000/1
+GET http://localhost:3000/products/1
 
 ###
 
@@ -11,8 +11,8 @@ POST http://localhost:3000/
 Content-Type: application/JSON
 
 {
-    "name": "Cow",
-    "description": "Freshest Frozen Cow",
+    "name": "Sample Product",
+    "description": "This is a sample product",
     "price": "10.00",
     "stock": 10
 }

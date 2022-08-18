@@ -33,7 +33,7 @@ const ProductTable: FC<ProductTableProps> = ({
       name: "On Hand Product",
       description: "This is a product that is on hand",
       price: 100,
-      tags: ["Fresh"],
+      stock: 12,
     });
   };
 
@@ -46,7 +46,7 @@ const ProductTable: FC<ProductTableProps> = ({
             <TableCell>Name</TableCell>
             <TableCell>Description</TableCell>
             <TableCell>Price</TableCell>
-            <TableCell>Tags</TableCell>
+            <TableCell>Stock</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -58,11 +58,7 @@ const ProductTable: FC<ProductTableProps> = ({
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.description}</TableCell>
                 <TableCell>{product.price}</TableCell>
-                <TableCell>
-                  {product.tags.map((tag, index) => {
-                    return <li key={index}>{tag}</li>;
-                  })}
-                </TableCell>
+                <TableCell>{product.stock}</TableCell>
                 <TableCell>
                   <div className="flex">
                     <Button

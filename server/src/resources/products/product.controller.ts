@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import productService from "./productService";
+import productService from "./product.service";
 
 function getAllProducts(req: Request, res: Response) {
   res.status(200).json(productService.getAll());
@@ -51,3 +51,4 @@ export {
   updateProduct,
   deleteProduct,
 };
+
