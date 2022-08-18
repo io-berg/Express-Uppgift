@@ -3,14 +3,14 @@ import {
   CreateProductDto,
   Product,
   ProductDto,
-  UpdateProductDto
+  UpdateProductDto,
 } from "./product.types";
+import util from "util";
 
 const productsPath = "./data/products.json";
-let products: Product[] = [];
+const readFile = util.promisify(fs.readFile);
 
 const productService = {
-  initialize: () => initialize(),
   getAll: () => getAll(),
   getById: (id: number) => getById(id),
   add: (product: CreateProductDto) => addProduct(product),
@@ -18,29 +18,20 @@ const productService = {
   delete: (id: number) => deleteProduct(id),
 };
 
-function getId() {
-  if (products.length === 0) {
-    return 1;
-  }
-  return products[products.length - 1].id + 1;
+async function getId() {
+  let products: Product[] = await fetchProducts();
+  return products.length > 0 ? products[products.length - 1].id + 1 : 1;
 }
 
-function initialize() {
-  if(!fs.existsSync("./data")) {
-    fs.mkdirSync("./data");
-  }
-  if (!fs.existsSync(productsPath)) {
-    fs.writeFileSync(productsPath, JSON.stringify([]));
-  } else {
-    products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
-  }
+async function getAll() {
+  let products: Product[] = await fetchProducts();
+
+  return products.map((p) => mapDto(p));
 }
 
-function getAll() {
-  return products.map(mapDto);
-}
+async function getById(id: number) {
+  let products: Product[] = await fetchProducts();
 
-function getById(id: number) {
   const product = products.find((p) => p.id === id);
   if (product) {
     return mapDto(product);
@@ -48,9 +39,11 @@ function getById(id: number) {
   return null;
 }
 
-function addProduct(product: CreateProductDto) {
+async function addProduct(product: CreateProductDto) {
+  let products: Product[] = await fetchProducts();
+
   const newProduct: Product = {
-    id: getId(),
+    id: await getId(),
     name: product.name,
     price: product.price,
     description: product.description,
@@ -59,12 +52,13 @@ function addProduct(product: CreateProductDto) {
     updatedAt: new Date(),
   };
 
-  products = [...products, newProduct];
-  saveProducts();
+  saveProducts([...products, newProduct]);
   return mapDto(newProduct);
 }
 
-function updateProduct(updated: UpdateProductDto) {
+async function updateProduct(updated: UpdateProductDto) {
+  let products: Product[] = await fetchProducts();
+
   const index = products.findIndex((p) => p.id === updated.id);
   if (index === -1) {
     return false;
@@ -80,27 +74,37 @@ function updateProduct(updated: UpdateProductDto) {
     updatedAt: new Date(),
   };
 
-  products = [
+  saveProducts([
     ...products.slice(0, index),
     updatedProduct,
     ...products.slice(index + 1),
-  ];
-  saveProducts();
+  ]);
+
   return mapDto(updatedProduct);
 }
 
-function deleteProduct(id: number) {
+async function deleteProduct(id: number) {
+  let products: Product[] = await fetchProducts();
+
   const index = products.findIndex((p) => p.id === id);
   if (index === -1) {
     return false;
   }
-  products = [...products.slice(0, index), ...products.slice(index + 1)];
-  saveProducts();
+
+  saveProducts([...products.slice(0, index), ...products.slice(index + 1)]);
   return true;
 }
 
-function saveProducts() {
-  fs.writeFileSync(productsPath, JSON.stringify(products));
+function saveProducts(products: Product[]) {
+  fs.writeFile(productsPath, JSON.stringify(products), (err) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+}
+
+async function fetchProducts() {
+  return await JSON.parse((await readFile(productsPath, "utf8")).toString());
 }
 
 function mapDto(product: Product): ProductDto {

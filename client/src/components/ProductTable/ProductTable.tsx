@@ -1,31 +1,26 @@
 import {
-  Button, Paper,
+  Button,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
-  TableRow
+  TableRow,
 } from "@mui/material";
 import { FC } from "react";
-import { Product } from "../types";
+import { Product } from "../../types";
 
 interface ProductTableProps {
   products: Product[];
-  admin: boolean;
 }
 
-const ProductTable: FC<ProductTableProps> = ({
-  products,
-  admin = false
-}) => {
-
+const ProductTable: FC<ProductTableProps> = ({ products }) => {
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Id</TableCell>
             <TableCell>Name</TableCell>
             <TableCell>Description</TableCell>
             <TableCell>Price</TableCell>
@@ -37,22 +32,14 @@ const ProductTable: FC<ProductTableProps> = ({
           {products.map((product) => {
             return (
               <TableRow key={product.id}>
-                <TableCell>{product.id}</TableCell>
                 <TableCell>{product.name}</TableCell>
                 <TableCell>{product.description}</TableCell>
                 <TableCell>{product.price}</TableCell>
                 <TableCell>{product.stock}</TableCell>
                 <TableCell>
-                  <div className="flex">
-                    {
-                      admin ? <Button variant="contained" color="primary" sx={{marginRight: "4px"}}>Edit</Button> : null
-                    }
-                    <Button color="error" variant="contained">
-                      {
-                        admin ? "Delete" : "Buy"
-                      }
-                    </Button>
-                  </div>
+                  <Button color="success" variant="contained">
+                    Buy
+                  </Button>
                 </TableCell>
               </TableRow>
             );

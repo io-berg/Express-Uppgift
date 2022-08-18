@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
 import productService from "./product.service";
 
-function getAllProducts(req: Request, res: Response) {
-  res.status(200).json(productService.getAll());
+async function getAllProducts(req: Request, res: Response) {
+  const products = await productService.getAll();
+  res.status(200).json(products);
 }
 
-function getProductById(req: Request, res: Response) {
-  throw new Error("Method not implemented.");
-  const product = productService.getById(Number(req.params.id));
+async function getProductById(req: Request, res: Response) {
+  const product = await productService.getById(Number(req.params.id));
   if (product) {
     res.status(200).json(product);
   } else {
@@ -15,8 +15,8 @@ function getProductById(req: Request, res: Response) {
   }
 }
 
-function updateProduct(req: Request, res: Response) {
-  const result = productService.add(req.body);
+async function updateProduct(req: Request, res: Response) {
+  const result = await productService.update(req.body);
 
   if (result) {
     res.status(201).json(result);
@@ -27,8 +27,8 @@ function updateProduct(req: Request, res: Response) {
   }
 }
 
-function addProduct(req: Request, res: Response) {
-  const result = productService.update(req.body);
+async function addProduct(req: Request, res: Response) {
+  const result = await productService.add(req.body);
   if (result) {
     res.status(200).json(result);
   } else {
@@ -36,8 +36,8 @@ function addProduct(req: Request, res: Response) {
   }
 }
 
-function deleteProduct(req: Request, res: Response) {
-  const result = productService.delete(req.body.id);
+async function deleteProduct(req: Request, res: Response) {
+  const result = await productService.delete(req.body.id);
   if (result) {
     res.status(200).json({ message: "Product deleted" });
   } else {
@@ -52,4 +52,3 @@ export {
   updateProduct,
   deleteProduct,
 };
-

@@ -5,9 +5,9 @@ import logger from "./middlewares/logger";
 import notFoundHandler from "./middlewares/notFoundHandler";
 import orderRouter from "./resources/orders/order.router";
 import productRouter from "./resources/products/product.router";
-import productService from "./resources/products/product.service";
+import startup from "./startup";
 
-productService.initialize();
+startup();
 const app = express();
 
 app.use(express.json());
