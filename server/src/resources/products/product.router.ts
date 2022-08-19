@@ -1,4 +1,5 @@
 import express from "express";
+import authorize from "../../middlewares/authorization";
 import validator from "../../middlewares/validator";
 import {
   addProduct,
@@ -13,8 +14,8 @@ const productRouter = express
   .Router()
   .get("/", getAllProducts)
   .get("/:id", getProductById)
-  .post("/", validator(schemas.createProduct), addProduct)
-  .put("/", validator(schemas.updateProduct), updateProduct)
-  .delete("/", validator(schemas.deleteProduct), deleteProduct);
+  .post("/", [authorize, validator(schemas.createProduct)], addProduct)
+  .put("/", [authorize, validator(schemas.updateProduct)], updateProduct)
+  .delete("/:id", authorize, deleteProduct);
 
 export default productRouter;

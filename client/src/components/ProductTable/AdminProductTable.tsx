@@ -1,5 +1,5 @@
 import {
-  Button,
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -10,15 +10,26 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 import { Product } from "../../types";
+import { deleteProduct } from "../../utils/apiCalls";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 interface AdminProductTableProps {
   products: Product[];
 }
 
 const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
+  const handleDelete = async (id: number) => {
+    const result = await deleteProduct(id);
+    console.log(result);
+    if (result.status === 204) {
+      window.location.reload();
+    }
+  };
+
   return (
-    <TableContainer component={Paper}>
-      <Table>
+    <TableContainer component={Paper} sx={{ overflow: "auto" }}>
+      <Table sx={{ minWidth: 650 }} size="small">
         <TableHead>
           <TableRow>
             <TableCell>Id</TableCell>
@@ -26,7 +37,7 @@ const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
             <TableCell>Description</TableCell>
             <TableCell>Price</TableCell>
             <TableCell>Stock</TableCell>
-            <TableCell>Actions</TableCell>
+            <TableCell align="center">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -38,18 +49,22 @@ const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
                 <TableCell>{product.description}</TableCell>
                 <TableCell>{product.price}</TableCell>
                 <TableCell>{product.stock}</TableCell>
-                <TableCell>
-                  <div className="flex">
-                    <Button
-                      color="success"
-                      variant="contained"
+                <TableCell align="center">
+                  <div className="flex center">
+                    <IconButton
+                      size="small"
+                      color="warning"
                       sx={{ marginRight: "4px" }}
                     >
-                      Edit
-                    </Button>
-                    <Button color="error" variant="contained">
-                      Delete
-                    </Button>
+                      <EditIcon />
+                    </IconButton>
+                    <IconButton
+                      color="error"
+                      onClick={() => handleDelete(product.id)}
+                      size="small"
+                    >
+                      <DeleteIcon />
+                    </IconButton>
                   </div>
                 </TableCell>
               </TableRow>

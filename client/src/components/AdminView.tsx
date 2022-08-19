@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Button, Container, Typography } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { Product } from "../types";
 import { getAllProducts } from "../utils/apiCalls";
@@ -16,8 +16,15 @@ const AdminView: FC<AdminViewProps> = ({}) => {
 
   return (
     <Container>
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-1">
         <Typography variant="h6">Admin View</Typography>
+        <Button
+          color="success"
+          variant="contained"
+          sx={{ marginBottom: "4px" }}
+        >
+          Add Product
+        </Button>
       </div>
       <AdminProductTable products={products} />
     </Container>

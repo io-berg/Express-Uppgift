@@ -11,10 +11,10 @@ POST http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
-    "name": "Sample Product async",
+    "name": "In stock product",
     "description": "This is a sample product",
     "price": "10.00",
-    "stock": 10
+    "stock": 8
 }
 
 ###
@@ -23,7 +23,7 @@ PUT http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
-    "id": 2,
+    "id": 1,
     "name": "Fresh Chicken",
     "description": "Fresh Chicken",
     "price": "999.99",
@@ -32,12 +32,8 @@ Content-Type: application/JSON
 
 ###
 
-DELETE http://localhost:3000/products/
+DELETE http://localhost:3000/products/1
 Content-Type: application/JSON
-
-{
-    "id": 5
-}
 
 
 ###

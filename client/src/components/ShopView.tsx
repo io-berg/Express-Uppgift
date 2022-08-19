@@ -17,9 +17,9 @@ const ShopView: FC<ShopViewProps> = ({}) => {
 
   return (
     <Container>
-      <Typography>
+      <div>
         <Typography variant="h6">Shop View</Typography>
-      </Typography>
+      </div>
       <ProductTable products={products} />
     </Container>
   );

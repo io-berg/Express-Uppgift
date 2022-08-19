@@ -37,9 +37,9 @@ async function addProduct(req: Request, res: Response) {
 }
 
 async function deleteProduct(req: Request, res: Response) {
-  const result = await productService.delete(req.body.id);
+  const result = await productService.delete(Number(req.params.id));
   if (result) {
-    res.status(200).json({ message: "Product deleted" });
+    res.status(204).json();
   } else {
     res.status(404).json({ message: "Product not found" });
   }

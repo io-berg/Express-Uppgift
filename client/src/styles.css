@@ -16,6 +16,15 @@
   flex-direction: row;
 }
 
+.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
 header {
   padding-top: 2rem;
   padding-bottom: 1rem;
