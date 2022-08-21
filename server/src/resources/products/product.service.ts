@@ -14,7 +14,7 @@ const productService = {
   getAll: () => getAll(),
   getById: (id: number) => getById(id),
   add: (product: CreateProductDto) => addProduct(product),
-  update: (product: UpdateProductDto) => updateProduct(product),
+  update: (id: number, product: UpdateProductDto) => updateProduct(id, product),
   delete: (id: number) => deleteProduct(id),
 };
 
@@ -56,16 +56,16 @@ async function addProduct(product: CreateProductDto) {
   return mapDto(newProduct);
 }
 
-async function updateProduct(updated: UpdateProductDto) {
+async function updateProduct(id: number, updated: UpdateProductDto) {
   let products: Product[] = await fetchProducts();
 
-  const index = products.findIndex((p) => p.id === updated.id);
+  const index = products.findIndex((p) => p.id === id);
   if (index === -1) {
     return false;
   }
 
   const updatedProduct: Product = {
-    id: updated.id,
+    id: id,
     name: updated.name,
     price: updated.price,
     description: updated.description,

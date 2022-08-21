@@ -1,4 +1,4 @@
-import { ProductCreationModel } from "../types";
+import { Product, ProductCreationModel } from "../types";
 
 const BASE_URL = "http://localhost:3000/products/";
 
@@ -17,13 +17,19 @@ const addProduct = async (product: ProductCreationModel) => {
     body: JSON.stringify(product),
   });
   const data = await response.json();
-  return data;
+  return {
+    responseCode: response.status,
+    data,
+  };
 };
 
 const getProductById = async (id: number) => {
   const response = await fetch(BASE_URL + id);
   const data = await response.json();
-  return data;
+  return {
+    responseCode: response.status,
+    data,
+  };
 };
 
 const updateProduct = async (id: number, product: ProductCreationModel) => {
@@ -34,8 +40,7 @@ const updateProduct = async (id: number, product: ProductCreationModel) => {
     },
     body: JSON.stringify(product),
   });
-  const data = await response.json();
-  return data;
+  return response;
 };
 
 const deleteProduct = async (id: number) => {

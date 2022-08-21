@@ -15,7 +15,7 @@ const productRouter = express
   .get("/", getAllProducts)
   .get("/:id", getProductById)
   .post("/", [authorize, validator(schemas.createProduct)], addProduct)
-  .put("/", [authorize, validator(schemas.updateProduct)], updateProduct)
+  .put("/:id", [authorize, validator(schemas.updateProduct)], updateProduct)
   .delete("/:id", authorize, deleteProduct);
 
 export default productRouter;

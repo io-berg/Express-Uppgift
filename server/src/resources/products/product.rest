@@ -3,7 +3,7 @@ GET http://localhost:3000/products/
 
 ###
 
-GET http://localhost:3000/products/1
+GET http://localhost:3000/products/5
 
 ###
 
@@ -11,8 +11,8 @@ POST http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
-    "name": "In stock product",
-    "description": "This is a sample product",
+    "name": "In stock product with really long name and description",
+    "description": "THis is a really long description of a product that is in stock and can be purchased right now.", 
     "price": "10.00",
     "stock": 8
 }

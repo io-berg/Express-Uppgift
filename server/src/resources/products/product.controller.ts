@@ -16,7 +16,7 @@ async function getProductById(req: Request, res: Response) {
 }
 
 async function updateProduct(req: Request, res: Response) {
-  const result = await productService.update(req.body);
+  const result = await productService.update(Number(req.params.id), req.body);
 
   if (result) {
     res.status(201).json(result);

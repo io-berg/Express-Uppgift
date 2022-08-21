@@ -13,12 +13,15 @@ import { Product } from "../../types";
 import { deleteProduct } from "../../utils/apiCalls";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
 
 interface AdminProductTableProps {
   products: Product[];
 }
 
 const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
+  const navigate = useNavigate();
+
   const handleDelete = async (id: number) => {
     const result = await deleteProduct(id);
     console.log(result);
@@ -55,6 +58,7 @@ const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
                       size="small"
                       color="warning"
                       sx={{ marginRight: "4px" }}
+                      onClick={() => navigate(`/admin/edit/${product.id}`)}
                     >
                       <EditIcon />
                     </IconButton>

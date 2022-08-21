@@ -27,17 +27,10 @@ interface CreateProductDto {
 }
 
 interface UpdateProductDto {
-  id: number;
   name: string;
   price: number;
   description: string;
   stock: number;
 }
 
-export type {
-  CreateProductDto,
-  Product,
-  ProductDto,
-  UpdateProductDto
-};
-
+export type { CreateProductDto, Product, ProductDto, UpdateProductDto };
