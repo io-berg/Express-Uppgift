@@ -11,11 +11,11 @@ import {
 } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Product } from "../types";
-import { getProductById, updateProduct } from "../utils/apiCalls";
-import ProductCard from "./ProductCard";
+import { Product } from "../../types";
+import { getProductById, updateProduct } from "../../utils/apiCalls";
 import * as yup from "yup";
 import { Formik } from "formik";
+import ProductCard from "../public/ProductCard";
 
 const EditView: FC = () => {
   const [product, setProduct] = useState<Product>();
@@ -60,12 +60,13 @@ const EditView: FC = () => {
     }
   }, [id]);
 
-  if (product == undefined || failedToUpdate) {
+  if (product == undefined || failedToUpdate || failedToFetch) {
     return (
       <Container>
         <Typography variant="h6">Edit View</Typography>
         <Typography variant="body1">
-          {failedToUpdate ? "Failed to update" : "Loading..."}
+          {failedToFetch ? "Failed to find item" : "Loading..."}
+          {failedToUpdate ? "Failed to update item" : null}
         </Typography>
       </Container>
     );

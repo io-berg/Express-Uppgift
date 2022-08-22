@@ -1,14 +1,15 @@
 import { Button, Container, Typography } from "@mui/material";
 import { FC, useEffect, useState } from "react";
-import { Product } from "../types";
-import { getAllProducts } from "../utils/apiCalls";
-import AdminProductTable from "./ProductTable/AdminProductTable";
-import ProductTable from "./ProductTable/ProductTable";
+import { useNavigate } from "react-router-dom";
+import { Product } from "../../types";
+import { getAllProducts } from "../../utils/apiCalls";
+import AdminProductTable from "./AdminProductTable";
 
 interface AdminViewProps {}
 
 const AdminView: FC<AdminViewProps> = ({}) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllProducts().then(setProducts);
@@ -22,6 +23,9 @@ const AdminView: FC<AdminViewProps> = ({}) => {
           color="success"
           variant="contained"
           sx={{ marginBottom: "4px" }}
+          onClick={() => {
+            navigate("/admin/product/create");
+          }}
         >
           Add Product
         </Button>

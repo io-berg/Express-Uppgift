@@ -1,7 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React, { FC, useEffect, useState } from "react";
-import { Product } from "../types";
-import { getAllProducts } from "../utils/apiCalls";
+import { Product } from "../../types";
+import { getAllProducts } from "../../utils/apiCalls";
 import ProductCard from "./ProductCard";
 
 interface ShopViewProps {}

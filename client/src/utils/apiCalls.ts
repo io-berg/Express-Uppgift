@@ -17,10 +17,7 @@ const addProduct = async (product: ProductCreationModel) => {
     body: JSON.stringify(product),
   });
   const data = await response.json();
-  return {
-    responseCode: response.status,
-    data,
-  };
+  return response.status;
 };
 
 const getProductById = async (id: number) => {

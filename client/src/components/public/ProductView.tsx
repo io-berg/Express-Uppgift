@@ -1,9 +1,9 @@
 import { Button, Container, Paper, Typography } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Product } from "../types";
-import { getProductById } from "../utils/apiCalls";
-import tempImg from "../assets/temp-img.png";
+import { Product } from "../../types";
+import { getProductById } from "../../utils/apiCalls";
+import tempImg from "../../assets/temp-img.png";
 
 const ProductView: FC = () => {
   const [product, setProduct] = useState<Product | undefined>(undefined);

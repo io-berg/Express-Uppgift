@@ -58,7 +58,9 @@ const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
                       size="small"
                       color="warning"
                       sx={{ marginRight: "4px" }}
-                      onClick={() => navigate(`/admin/edit/${product.id}`)}
+                      onClick={() =>
+                        navigate(`/admin/product/edit/${product.id}`)
+                      }
                     >
                       <EditIcon />
                     </IconButton>
