@@ -13,20 +13,28 @@ import {
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { Product } from "../../types";
+import { useAlerts } from "../../utils/AlertContext";
 import { deleteProduct } from "../../utils/apiCalls";
 
 interface AdminProductTableProps {
   products: Product[];
+  updateProducts: () => void;
 }
 
-const ProductTable: FC<AdminProductTableProps> = ({ products }) => {
+const ProductTable: FC<AdminProductTableProps> = ({
+  products,
+  updateProducts,
+}) => {
   const navigate = useNavigate();
+  const alertContext = useAlerts();
 
   const handleDelete = async (id: number) => {
     const result = await deleteProduct(id);
-    console.log(result);
     if (result.status === 204) {
-      window.location.reload();
+      alertContext.addAlert("Product deleted successfully", "success");
+      updateProducts();
+    } else {
+      alertContext.addAlert("Failed to delete product", "error");
     }
   };
 

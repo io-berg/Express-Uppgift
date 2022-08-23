@@ -12,7 +12,7 @@ Content-Type: application/JSON
 
 {
     "name": "In stock product with really long name and description",
-    "description": "THis is a longer description of a product that is in stock and can be purchased right now.", 
+    "description": "This is a longer description of a product that is in stock and can be purchased right now.", 
     "price": "10.00",
     "stock": 8
 }

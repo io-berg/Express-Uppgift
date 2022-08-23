@@ -11,8 +11,12 @@ const AdminView: FC<AdminViewProps> = ({}) => {
   const [products, setProducts] = useState<Product[]>([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const fetchProducts = () => {
     getAllProducts().then(setProducts);
+  };
+
+  useEffect(() => {
+    fetchProducts();
   }, []);
 
   return (
@@ -30,7 +34,7 @@ const AdminView: FC<AdminViewProps> = ({}) => {
           Add Product
         </Button>
       </div>
-      <AdminProductTable products={products} />
+      <AdminProductTable products={products} updateProducts={fetchProducts} />
     </Container>
   );
 };

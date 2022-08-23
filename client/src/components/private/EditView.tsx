@@ -12,6 +12,7 @@ import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from "yup";
 import { Product } from "../../types";
+import { useAlerts } from "../../utils/AlertContext";
 import { getProductById, updateProduct } from "../../utils/apiCalls";
 import ProductCard from "../ProductCard";
 
@@ -21,6 +22,7 @@ const EditView: FC = () => {
   const [failedToFetch, setFailedToFetch] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
+  const alertContext = useAlerts();
 
   const schema = yup.object().shape({
     name: yup.string().required("Name is required"),
@@ -41,8 +43,11 @@ const EditView: FC = () => {
 
     result?.then((res) => {
       if (res.status === 201) {
+        alertContext.addAlert("Product updated successfully", "success");
         navigate("/admin");
-      } else setFailedToUpdate(true);
+      } else {
+        alertContext.addAlert("Failed to update product", "error");
+      }
     });
   };
 

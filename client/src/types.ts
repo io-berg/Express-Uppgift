@@ -3,7 +3,7 @@ interface Product {
   name: string;
   price: number;
   description: string;
-  stock: number;  
+  stock: number;
 }
 
 interface ProductCreationModel {
@@ -14,11 +14,24 @@ interface ProductCreationModel {
 }
 
 interface ProductUpdateModel {
-  id: number;
   name: string;
   price: number;
   description: string;
   stock: number;
 }
 
-export type { Product, ProductCreationModel };
+interface IAlert {
+  id: number;
+  type: AlertType;
+  message: string;
+}
+
+type AlertType = "success" | "warning" | "error" | "info";
+
+export type {
+  Product,
+  ProductCreationModel,
+  ProductUpdateModel,
+  AlertType,
+  IAlert,
+};

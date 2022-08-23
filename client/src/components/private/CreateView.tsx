@@ -12,18 +12,21 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { ProductCreationModel } from "../../types";
+import { useAlerts } from "../../utils/AlertContext";
 import { addProduct } from "../../utils/apiCalls";
 import ProductCard from "../ProductCard";
 
 const CreateView: FC = () => {
   const navigate = useNavigate();
+  const alertContext = useAlerts();
 
   const handleSubmit = async (values: ProductCreationModel) => {
     let result = await addProduct(values);
     if (result === 201) {
+      alertContext.addAlert("Product created successfully", "success");
       navigate("/admin");
     } else {
-      console.log("Failed to add product");
+      alertContext.addAlert("Failed to add product", "error");
     }
   };
 
