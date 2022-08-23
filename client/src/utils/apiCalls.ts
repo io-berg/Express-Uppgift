@@ -1,4 +1,4 @@
-import { ProductCreationModel, ProductUpdateModel } from "../types";
+import { Product, ProductCreationModel } from "../types";
 
 const BASE_URL = "http://localhost:3000/products/";
 
@@ -23,12 +23,12 @@ const getProductById = async (id: number) => {
   const response = await fetch(BASE_URL + id);
   const data = await response.json();
   return {
-    responseCode: response.status,
+    status: response.status,
     data,
   };
 };
 
-const updateProduct = async (id: number, product: ProductUpdateModel) => {
+const updateProduct = async (id: number, product: ProductCreationModel) => {
   const response = await fetch(BASE_URL + id, {
     method: "PUT",
     headers: {

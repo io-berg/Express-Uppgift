@@ -17,7 +17,7 @@ const ProductView: FC = () => {
   useEffect(() => {
     if (id) {
       getProductById(Number(id)).then((res) => {
-        if (res.responseCode === 200) {
+        if (res.status === 200) {
           setProduct(res.data);
         } else setFailedToFetch(true);
       });
