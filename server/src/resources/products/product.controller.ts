@@ -21,8 +21,8 @@ async function updateProduct(req: Request, res: Response) {
   if (result) {
     res.status(201).json(result);
   } else {
-    res.status(400).json({
-      message: "Invalid product data",
+    res.status(404).json({
+      message: "Product not found",
     });
   }
 }
@@ -32,7 +32,7 @@ async function addProduct(req: Request, res: Response) {
   if (result) {
     res.status(201).json(result);
   } else {
-    res.status(404).json({ message: "Product not found" });
+    res.status(500).json({ message: "Error adding product" });
   }
 }
 
