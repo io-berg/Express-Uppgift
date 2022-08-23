@@ -2,20 +2,18 @@ import {
   Button,
   Container,
   FormControl,
-  FormGroup,
   FormLabel,
   Input,
-  InputLabel,
   Paper,
   Typography,
 } from "@mui/material";
+import { Formik } from "formik";
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import * as yup from "yup";
 import { Product } from "../../types";
 import { getProductById, updateProduct } from "../../utils/apiCalls";
-import * as yup from "yup";
-import { Formik } from "formik";
-import ProductCard from "../public/ProductCard";
+import ProductCard from "../ProductCard";
 
 const EditView: FC = () => {
   const [product, setProduct] = useState<Product>();

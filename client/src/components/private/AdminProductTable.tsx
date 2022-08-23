@@ -1,3 +1,5 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import {
   IconButton,
   Paper,
@@ -9,11 +11,9 @@ import {
   TableRow,
 } from "@mui/material";
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { Product } from "../../types";
 import { deleteProduct } from "../../utils/apiCalls";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useNavigate } from "react-router-dom";
 
 interface AdminProductTableProps {
   products: Product[];

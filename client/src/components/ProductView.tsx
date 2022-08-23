@@ -1,16 +1,18 @@
 import { Button, Container, Paper, Typography } from "@mui/material";
 import { FC, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Product } from "../../types";
-import { getProductById } from "../../utils/apiCalls";
-import tempImg from "../../assets/temp-img.png";
+import tempImg from "../assets/temp-img.png";
+import { Product } from "../types";
+import { getProductById } from "../utils/apiCalls";
 
 const ProductView: FC = () => {
   const [product, setProduct] = useState<Product | undefined>(undefined);
   const [failedToFetch, setFailedToFetch] = useState(false);
   const { id } = useParams();
 
-  const handlePurchase = () => {};
+  const handlePurchase = () => {
+    alert("Puchase not implemented");
+  };
 
   useEffect(() => {
     if (id) {
@@ -49,7 +51,12 @@ const ProductView: FC = () => {
               <Typography variant="h5" fontWeight="bold" color="red">
                 {product.price}:-
               </Typography>
-              <Button variant="contained" color="success" sx={{ marginTop: 1 }}>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{ marginTop: 1 }}
+                onClick={handlePurchase}
+              >
                 Buy
               </Button>
             </div>

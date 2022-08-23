@@ -4,7 +4,7 @@
 
 - [Introduction](#Introduction)
 - [Startup](#Startup)
-- [Project Requirements](#Project Requirements)
+- [Project Requirements](#Project-Requirements)
 
 ## Introduction
 
@@ -49,6 +49,6 @@ Krav för väl godkänt:
      - [x] GET: used at http://localhost:5173/ to load all products
      - [x] GET/Id: used at http://localhost:5173/product/id to load specific product
      - [x] POST: used at http://localhost:5173/admin/product/create to add a new product
-     - [x] PUT: http://localhost:5173/admin/product/edit/id to update a products properties
+     - [x] PUT: http://localhost:5173/admin/product/edit/id to update a product properties
      - [x] DELETE: used at http://localhost:5173/admin to delete a product)
 - [x] 5. Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt

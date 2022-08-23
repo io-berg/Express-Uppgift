@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 import AdminView from "./components/private/AdminView";
 import CreateView from "./components/private/CreateView";
 import EditView from "./components/private/EditView";
-import Header from "./components/public/Header";
-import ProductView from "./components/public/ProductView";
-import ShopView from "./components/public/ShopView";
+import ProductView from "./components/ProductView";
+import ShopView from "./components/ShopView";
 
 function App() {
   return (

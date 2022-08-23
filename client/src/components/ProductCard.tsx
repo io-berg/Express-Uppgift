@@ -1,8 +1,8 @@
-import { Button, Card, Typography, Paper, CardContent } from "@mui/material";
+import { Button, Card, CardContent, Paper, Typography } from "@mui/material";
 import { FC } from "react";
-import tempImgSmall from "../../assets/temp-img-small.png";
 import { useNavigate } from "react-router-dom";
-import { Product } from "../../types";
+import tempImgSmall from "../assets/temp-img-small.png";
+import { Product } from "../types";
 
 interface ProductCardProps {
   product: Product;

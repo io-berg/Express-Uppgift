@@ -10,18 +10,20 @@ import {
 import { Formik } from "formik";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
 import { ProductCreationModel } from "../../types";
 import { addProduct } from "../../utils/apiCalls";
-import * as yup from "yup";
-import ProductCard from "../public/ProductCard";
+import ProductCard from "../ProductCard";
 
 const CreateView: FC = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (values: ProductCreationModel) => {
     let result = await addProduct(values);
-    if (result === 204) {
+    if (result === 201) {
       navigate("/admin");
+    } else {
+      console.log("Failed to add product");
     }
   };
 

@@ -30,7 +30,7 @@ async function updateProduct(req: Request, res: Response) {
 async function addProduct(req: Request, res: Response) {
   const result = await productService.add(req.body);
   if (result) {
-    res.status(200).json(result);
+    res.status(201).json(result);
   } else {
     res.status(404).json({ message: "Product not found" });
   }
