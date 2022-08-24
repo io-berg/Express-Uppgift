@@ -7,11 +7,7 @@ type AlertContextType = {
   removeAlert: (id: number) => void;
 };
 
-const AlertContext = createContext<AlertContextType>({
-  alerts: [],
-  addAlert: () => {},
-  removeAlert: () => {},
-});
+const AlertContext = createContext<AlertContextType | undefined>(undefined);
 
 interface AlertProviderProps {
   children: React.ReactNode;

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import tempImg from "../assets/temp-img.png";
 import { Product } from "../types";
 import { getProductById } from "../utils/apiCalls";
+import "./productView.css";
 
 const ProductView: FC = () => {
   const [product, setProduct] = useState<Product | undefined>(undefined);

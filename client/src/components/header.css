@@ -1,0 +1,8 @@
+header {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.header-button-group button {
+  margin-left: 1rem;
+}

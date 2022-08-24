@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from "react";
 import { Product } from "../types";
 import { getAllProducts } from "../utils/apiCalls";
 import ProductCard from "./ProductCard";
+import "./shopView.css";
 
 interface ShopViewProps {}
 

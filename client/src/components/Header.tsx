@@ -1,6 +1,7 @@
 import { Button, Container, Typography } from "@mui/material";
 import { FC } from "react";
 import { useNavigate } from "react-router-dom";
+import "./header.css";
 
 interface HeaderProps {}
 

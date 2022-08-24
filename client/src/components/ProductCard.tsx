@@ -3,6 +3,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import tempImgSmall from "../assets/temp-img-small.png";
 import { Product } from "../types";
+import "./productCard.css";
 
 interface ProductCardProps {
   product: Product;

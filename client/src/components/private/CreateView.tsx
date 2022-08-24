@@ -23,10 +23,10 @@ const CreateView: FC = () => {
   const handleSubmit = async (values: ProductCreationModel) => {
     let result = await addProduct(values);
     if (result === 201) {
-      alertContext.addAlert("Product created successfully", "success");
+      alertContext?.addAlert("Product created successfully", "success");
       navigate("/admin");
     } else {
-      alertContext.addAlert("Failed to add product", "error");
+      alertContext?.addAlert("Failed to add product", "error");
     }
   };
 
@@ -40,7 +40,7 @@ const CreateView: FC = () => {
     stock: yup
       .number()
       .required("Stock is required")
-      .moreThan(0, "Stock cannot be less than 0"),
+      .moreThan(-1, "Stock cannot be less than 0"),
   });
 
   return (
@@ -77,7 +77,7 @@ const CreateView: FC = () => {
                   New Product
                 </Typography>
                 <Paper>
-                  <div className="flex column edit-form">
+                  <div className="flex column p-1">
                     <FormControl sx={{ marginBottom: "1rem" }}>
                       <FormLabel htmlFor="name">Name</FormLabel>
                       <Input

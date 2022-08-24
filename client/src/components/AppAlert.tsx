@@ -24,7 +24,7 @@ const AppAlert: FC<AlertProps> = ({ id, message, type }) => {
           color="inherit"
           size="small"
           onClick={() => {
-            alertContext.removeAlert(id);
+            alertContext?.removeAlert(id);
           }}
         >
           <CloseIcon fontSize="inherit" />

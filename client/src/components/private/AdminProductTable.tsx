@@ -31,10 +31,10 @@ const ProductTable: FC<AdminProductTableProps> = ({
   const handleDelete = async (id: number) => {
     const result = await deleteProduct(id);
     if (result.status === 204) {
-      alertContext.addAlert("Product deleted successfully", "success");
+      alertContext?.addAlert("Product deleted successfully", "success");
       updateProducts();
     } else {
-      alertContext.addAlert("Failed to delete product", "error");
+      alertContext?.addAlert("Failed to delete product", "error");
     }
   };
 

@@ -41,10 +41,10 @@ const EditView: FC = () => {
     if (product) {
       const result = await updateProduct(product.id, values);
       if (result.status === 201) {
-        alertContext.addAlert("Product updated successfully", "success");
+        alertContext?.addAlert("Product updated successfully", "success");
         navigate("/admin");
       } else {
-        alertContext.addAlert("Failed to update product", "error");
+        alertContext?.addAlert("Failed to update product", "error");
       }
     }
   };
@@ -55,7 +55,7 @@ const EditView: FC = () => {
         if (res.status === 200) {
           setProduct(res.data);
         } else {
-          alertContext.addAlert("Failed to get product", "error");
+          alertContext?.addAlert("Failed to load product", "error");
         }
       });
     }
@@ -97,7 +97,7 @@ const EditView: FC = () => {
                   Edit
                 </Typography>
                 <Paper>
-                  <div className="flex column edit-form">
+                  <div className="flex column p-1">
                     <FormControl sx={{ marginBottom: "1rem" }}>
                       <FormLabel htmlFor="name">Name</FormLabel>
                       <Input

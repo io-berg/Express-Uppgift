@@ -1,0 +1,18 @@
+.productView-img-container {
+  flex: 1;
+  height: auto;
+}
+
+.productView-img {
+  max-width: 100%;
+  display: flex;
+  height: auto;
+}
+
+.productView-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1rem;
+  max-width: 500px;
+}
