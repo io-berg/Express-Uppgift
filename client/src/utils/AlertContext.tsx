@@ -1,8 +1,8 @@
 import { createContext, FC, useContext, useState } from "react";
-import { AlertType, IAlert } from "../types";
+import { AlertType, Alert } from "../types";
 
 type AlertContextType = {
-  alerts: IAlert[];
+  alerts: Alert[];
   addAlert: (message: string, type: AlertType) => void;
   removeAlert: (id: number) => void;
 };
@@ -14,7 +14,7 @@ interface AlertProviderProps {
 }
 
 export const AlertProvider: FC<AlertProviderProps> = ({ children }) => {
-  const [alerts, setAlerts] = useState<IAlert[]>([]);
+  const [alerts, setAlerts] = useState<Alert[]>([]);
 
   const addAlert = (message: string, type: AlertType) => {
     const newAlert = { id: Date.now(), message, type };

@@ -20,7 +20,7 @@ interface ProductUpdateModel {
   stock: number;
 }
 
-interface IAlert {
+interface Alert {
   id: number;
   type: AlertType;
   message: string;
@@ -33,5 +33,5 @@ export type {
   ProductCreationModel,
   ProductUpdateModel,
   AlertType,
-  IAlert,
+  Alert,
 };

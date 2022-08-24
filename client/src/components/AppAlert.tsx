@@ -1,5 +1,5 @@
 import CloseIcon from "@mui/icons-material/Close";
-import { Alert, IconButton } from "@mui/material";
+import { Alert as MuiAlert, IconButton } from "@mui/material";
 import { FC } from "react";
 import { AlertType } from "../types";
 import { useAlerts } from "../utils/AlertContext";
@@ -17,7 +17,7 @@ const AppAlert: FC<AlertProps> = ({ id, message, type }) => {
   }
 
   return (
-    <Alert
+    <MuiAlert
       action={
         <IconButton
           aria-label="close"
@@ -34,7 +34,7 @@ const AppAlert: FC<AlertProps> = ({ id, message, type }) => {
       severity={type}
     >
       {message}
-    </Alert>
+    </MuiAlert>
   );
 };
 
