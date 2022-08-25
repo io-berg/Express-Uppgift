@@ -39,7 +39,7 @@ const ProductView: FC = () => {
   } else {
     return (
       <Container component={Paper} sx={{ paddingTop: 2, paddingBottom: 2 }}>
-        <div className="flex">
+        <div className="flex productView-wrapper">
           <div className="productView-img-container">
             <img className="productView-img" src={tempImg} alt={product.name} />
           </div>

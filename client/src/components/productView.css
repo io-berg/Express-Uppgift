@@ -16,3 +16,13 @@
   padding: 1rem;
   max-width: 500px;
 }
+
+@media screen and (max-width: 850px) {
+  .productView-content {
+    max-width: 100%;
+  }
+
+  .productView-wrapper {
+    flex-direction: column;
+  }
+}

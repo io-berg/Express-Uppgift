@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/program.js",
     "build": "tsc",
-    "dev": "nodemon src/program.ts"
+    "dev": "nodemon --ignore data/ src/program.ts"
   },
   "keywords": [],
   "author": "",

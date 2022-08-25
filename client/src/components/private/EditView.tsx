@@ -7,13 +7,13 @@ import {
   FormLabel,
   Input,
   Paper,
-  Typography,
+  Typography
 } from "@mui/material";
 import { Formik } from "formik";
 import { FC, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import * as yup from "yup";
-import { Product } from "../../types";
+import { Product, ProductUpdateModel } from "../../types";
 import { useAlerts } from "../../utils/AlertContext";
 import { getProductById, updateProduct } from "../../utils/apiCalls";
 import ProductCard from "../ProductCard";
@@ -37,7 +37,7 @@ const EditView: FC = () => {
       .moreThan(0, "Stock cannot be less than 0"),
   });
 
-  const handleSubmit = async (values: Product) => {
+  const handleSubmit = async (values: ProductUpdateModel) => {
     if (product) {
       const result = await updateProduct(product.id, values);
       if (result.status === 201) {
@@ -73,7 +73,14 @@ const EditView: FC = () => {
       <Typography variant="h6">Edit View</Typography>
       <div className="flex justify-around">
         <Formik
-          initialValues={product}
+          initialValues={
+            {
+              name: product.name,
+              description: product.description,
+              price: product.price,
+              stock: product.stock,
+            }
+          }
           validationSchema={schema}
           onSubmit={(values) => {
             handleSubmit(values);
@@ -172,7 +179,15 @@ const EditView: FC = () => {
                 <Typography textAlign="center" variant="h6">
                   Preview
                 </Typography>
-                <ProductCard product={values} />
+                <ProductCard product={
+                  {
+                    id: product.id,
+                    name: values.name,
+                    description: values.description,
+                    price: values.price,
+                    stock: values.stock,
+                  }
+                } />
               </div>
             </form>
           )}

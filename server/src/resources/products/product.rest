@@ -3,7 +3,7 @@ GET http://localhost:3000/products/
 
 ###
 
-GET http://localhost:3000/products/5
+GET http://localhost:3000/products/4
 
 ###
 
@@ -11,7 +11,7 @@ POST http://localhost:3000/products/
 Content-Type: application/JSON
 
 {
-    "name": "In stock product with really long name and description",
+    "name": "In stock product with long name and description",
     "description": "This is a longer description of a product that is in stock and can be purchased right now.", 
     "price": "10.00",
     "stock": 8
@@ -19,20 +19,19 @@ Content-Type: application/JSON
 
 ###
 
-PUT http://localhost:3000/products/
+PUT http://localhost:3000/products/4
 Content-Type: application/JSON
 
 {
-    "id": 1,
-    "name": "Fresh Chicken",
-    "description": "Fresh Chicken",
+    "name": "A old boot that is in stock",
+    "description": "Why not buy it?",
     "price": "999.99",
     "stock": 10
 }
 
 ###
 
-DELETE http://localhost:3000/products/1
+DELETE http://localhost:3000/products/4
 Content-Type: application/JSON
 
 

@@ -9,7 +9,6 @@ const scemas = {
   }),
 
   updateProduct: Joi.object().keys({
-    id: Joi.number().required(),
     name: Joi.string().optional(),
     price: Joi.number().optional().min(0),
     description: Joi.string().optional(),

@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 
 function getAllOrders(req: Request, res: Response) {
-    res.send("get all orders");
+    throw new Error("Method not implemented.");
 }
 
 function getOrderById(req: Request, res: Response) {
-    res.send("get order by id");
+    throw new Error("Method not implemented.");
 }
 
 function createOrder(req: Request, res: Response) {
-    res.send("create order");
+    throw new Error("Method not implemented.");
 }
 
 export {

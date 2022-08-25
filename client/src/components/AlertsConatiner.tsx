@@ -9,9 +9,9 @@ const AlertsContainer: FC = () => {
   return (
     <Stack
       spacing={2}
-      sx={{ position: "absolute", top: "0", right: "0", margin: "1rem" }}
+      sx={{ position: "absolute", top: "0", right: "0", margin: "1rem", zIndex: "1" }}
     >
-      {alertContext.alerts.map((alert) => (
+      {alertContext?.alerts.map((alert) => (
         <AppAlert
           key={alert.id}
           id={alert.id}
