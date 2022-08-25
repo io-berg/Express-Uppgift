@@ -4,9 +4,8 @@ import {
   CircularProgress,
   Container,
   FormControl,
-  FormLabel,
-  Input,
-  Paper,
+  FormLabel, Input,
+  Paper, TextField,
   Typography
 } from "@mui/material";
 import { Formik } from "formik";
@@ -123,13 +122,13 @@ const EditView: FC = () => {
                     </FormControl>
                     <FormControl sx={{ marginBottom: "1rem" }}>
                       <FormLabel htmlFor="description">Description</FormLabel>
-                      <Input
+                      <TextField
                         id="description"
                         name="description"
-                        type="text"
                         value={values.description}
                         onChange={handleChange}
                         onBlur={handleBlur}
+                        multiline
                       />
                       {errors.description && touched.description ? (
                         <Typography variant="body2" color="error">

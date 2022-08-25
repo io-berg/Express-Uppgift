@@ -24,7 +24,9 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
             />
 
             <Typography variant="h6">{product.name}</Typography>
-            <Typography variant="body1">{product.description}</Typography>
+            <div className="productCard-description-wrapper">
+              <Typography variant="body1">{product.description}</Typography>
+            </div>
           </div>
           <div>
             <Typography variant="h5" fontWeight="bold" color="red">
