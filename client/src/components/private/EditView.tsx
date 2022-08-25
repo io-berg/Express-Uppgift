@@ -4,9 +4,11 @@ import {
   CircularProgress,
   Container,
   FormControl,
-  FormLabel, Input,
-  Paper, TextField,
-  Typography
+  FormLabel,
+  Input,
+  Paper,
+  TextField,
+  Typography,
 } from "@mui/material";
 import { Formik } from "formik";
 import { FC, useEffect, useState } from "react";
@@ -29,17 +31,17 @@ const EditView: FC = () => {
     price: yup
       .number()
       .required("Price must be a number")
-      .moreThan(0.01, "Price must be more than 0.01"),
+      .moreThan(0, "Price must be more than 0"),
     stock: yup
       .number()
       .required("Stock is required")
-      .moreThan(0, "Stock cannot be less than 0"),
+      .moreThan(-1, "Stock cannot be less than 0"),
   });
 
   const handleSubmit = async (values: ProductUpdateModel) => {
     if (product) {
       const result = await updateProduct(product.id, values);
-      if (result.status === 201) {
+      if (result.status === 200) {
         alertContext?.addAlert("Product updated successfully", "success");
         navigate("/admin");
       } else {
@@ -72,14 +74,12 @@ const EditView: FC = () => {
       <Typography variant="h6">Edit View</Typography>
       <div className="flex justify-around">
         <Formik
-          initialValues={
-            {
-              name: product.name,
-              description: product.description,
-              price: product.price,
-              stock: product.stock,
-            }
-          }
+          initialValues={{
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            stock: product.stock,
+          }}
           validationSchema={schema}
           onSubmit={(values) => {
             handleSubmit(values);
@@ -178,15 +178,15 @@ const EditView: FC = () => {
                 <Typography textAlign="center" variant="h6">
                   Preview
                 </Typography>
-                <ProductCard product={
-                  {
+                <ProductCard
+                  product={{
                     id: product.id,
                     name: values.name,
                     description: values.description,
                     price: values.price,
                     stock: values.stock,
-                  }
-                } />
+                  }}
+                />
               </div>
             </form>
           )}

@@ -19,7 +19,7 @@ async function updateProduct(req: Request, res: Response) {
   const result = await productService.update(Number(req.params.id), req.body);
 
   if (result) {
-    res.status(201).json(result);
+    res.status(200).json(result);
   } else {
     res.status(404).json({
       message: "Product not found",

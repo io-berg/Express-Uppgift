@@ -6,7 +6,7 @@ import {
   Input,
   Paper,
   TextField,
-  Typography
+  Typography,
 } from "@mui/material";
 import { Formik } from "formik";
 import { FC } from "react";
@@ -37,7 +37,7 @@ const CreateView: FC = () => {
     price: yup
       .number()
       .required("Price must be a number")
-      .moreThan(0.01, "Price must be more than 0.01"),
+      .moreThan(0, "Price must be more than 0"),
     stock: yup
       .number()
       .required("Stock is required")

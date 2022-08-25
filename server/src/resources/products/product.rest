@@ -23,7 +23,7 @@ PUT http://localhost:3000/products/4
 Content-Type: application/JSON
 
 {
-    "name": "A old boot that is in stock",
+    "name": "A123 in stock",
     "description": "Why not buy it?",
     "price": "999.99",
     "stock": 10
